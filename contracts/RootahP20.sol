@@ -16,8 +16,8 @@ contract RootahP20 is PERC20, Ownable {
         _mint(to, amount);
     }
 
-    // Специальный метод для владельца для получения баланса любого аккаунта
-    function getBalance(address account) public view onlyOwner returns (uint256) {
+    // Переопределение функции balanceOf для PERC-20 стандарта
+    function balanceOf(address account) public view override returns (uint256) {
         return super.balanceOf(account);
     }
 
